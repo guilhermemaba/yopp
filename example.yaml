@@ -1,0 +1,11 @@
+name: Guilherme Maba
+database:
+    database_name: default
+    host: pudim.com.br
+    user: postgresql
+apps: [
+    django.contrib.auth,
+    django.contrib.admin,
+    web]
+year: 2015
+model: !gimme_model auth.User
