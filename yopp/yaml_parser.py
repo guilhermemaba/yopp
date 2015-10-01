@@ -69,7 +69,11 @@ class YAMLParser(MutableMapping):
         Load file yaml and set data in object
         '''
         data = self._parse_yaml()
-        self.update(data)
+        if isinstance(data, dict):
+            self.update(data)
+        else:
+            data = {index: data_dict for index, data_dict in enumerate(data)}
+            self.update(data)
 
 
 def _is_mime_type_yaml(mime_type):
