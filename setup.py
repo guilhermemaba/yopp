@@ -24,7 +24,7 @@ test_requirements = [
 
 setup(
     name='yopp',
-    version='0.1.1',
+    version='0.1.2',
     description="Transforms YAML file to python objects using a custom parser",
     long_description=readme + '\n\n' + history,
     author="Guilherme Luís Maba",
