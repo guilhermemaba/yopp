@@ -2,6 +2,7 @@
 # vim: ts=4 sts=4 sw=4 et:
 
 import yaml
+import operator
 
 
 class ElementParser(yaml.YAMLObject):
@@ -12,7 +13,7 @@ class ElementParser(yaml.YAMLObject):
     @classmethod
     def loader(cls, loader, node):
         value = loader.construct_scalar(node)
-        return cls(value)
+        return cls.action(value)
 
     @classmethod
     def representer(cls, dumper, data):

@@ -6,7 +6,6 @@ import yaml
 import os
 from collections import MutableMapping
 from constants import YAML_MIME_TYPES
-from element_parser import ElementParser
 
 __all__ = ['YAMLParserException', 'YAMLDoesNotExistException', 'YAMLNotDefinedException', 'YAMLParser']
 
@@ -35,11 +34,7 @@ class YAMLParser(MutableMapping):
         return self.store[key]
 
     def __setitem__(self, key, value):
-        if isinstance(value, ElementParser):
-            # call function action
-            self.store[key] = value.action(value.data)
-        else:
-            self.store[key] = value
+        self.store[key] = value
 
     def __delitem__(self, key):
         del self.store[key]
